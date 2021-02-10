@@ -1,0 +1,94 @@
+" My own customizations on top of what is configured in ~/.vimrc.
+" These additional settings are necessary in order to combine with settings provided by vim-bootstrap.
+
+" Sequence of keys to make TODO:
+" the "o" command opens a new line and starts Insert mode.
+" the ":" character takes Vim to the command line, the ":read !date" command reads the the date and appends it below the `TODO(...): ` line.
+" the <CR> is required to execute the ":read" command.
+" "kJ" moves the cursor up and joins the lines together.
+"
+map <c-F> o//TODO(agenosov): <Esc>:read !date --iso-8601<CR>kJ
+
+" Status line as:
+" - full path to the file in the buffer
+" - modified flag
+" - readonly flag  
+" - line number / column number
+" - buffer number
+set statusline=%F%m%r=(line\ %l,\ col\ %c,\ buf\ %n)
+
+" navigation between split windows
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+set splitbelow
+set splitright
+
+
+" tabs navigation
+let g:lasttab = 1
+
+" key map for going to a last tab
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+
+
+" Available colors: /usr/share/vim/vim80/colors
+" Try 'badwolf' colorscheme / molokai 
+colorscheme industry
+
+
+" Draw a line where cursor is currently on
+set cursorline
+
+
+" Additional plugins available out-of-the-box
+"
+" A trick to make the man page appear in a Vim. Use <Leader>K to display a man page for the word under the cursor
+:runtime! ftplugin/man.vim
+
+
+" Plugin specific settings
+"
+" Enable CtrlP fuzzy file searcher
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Misc settings for CtrlP.
+" Search by filename
+let g:ctrlp_by_filename = 0
+" Position of the match window (results are from top to bottom
+let g:ctrlp_match_window = 'bottom,order:ttb'
+
+" Ack-grep settings
+"
+" Don't jump to the first result automatically
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+
+" NERDTree specifics
+"
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Open NERDTree via Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+" Toggle tabs
+map <C-t> :NERDTreeTabsToggle<CR>
+" focus on the file window
+let g:nerdtree_tabs_focus_on_files=1
+
+" Set update time to 500ms in order to accelerate the 'gitgutter' plugin
+set updatetime=500
+
+" vim-session settings
+"
+let g:session_directory = "~/.vim/session"
+" disable automatic loading of default session
+let g:session_autoload = "no"
+" auto save opened session on quit Vim
+let g:session_autosave = "yes"
+" Don't save hidden and unloaded buffers in sessions.
+set sessionoptions-=buffers
+" Don't restore help windows
+set sessionoptions-=help

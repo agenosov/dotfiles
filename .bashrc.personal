@@ -1,0 +1,6 @@
+export PATH=$PATH:/opt/pycharm-community-2018.3.4/bin
+
+export PSQL_EDITOR=/usr/bin/vim 
+
+# Make settings for ConfD available
+source /opt/confd/confdrc
