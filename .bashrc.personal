@@ -1,6 +1,20 @@
 export PATH=$PATH:/opt/pycharm-community-2018.3.4/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 export PSQL_EDITOR=/usr/bin/vim 
 
 # Make settings for ConfD available
 source /opt/confd/confdrc
+
+vim_session_rm()
+{
+    rm ~/.vim/session/$1
+}
+
+# Remove git worktree and corresponding branch
+git_remove_wt()
+{
+    git worktree remove -f $1
+    git branch -D $2
+}

@@ -1,3 +1,9 @@
+" Debug-language-server
+let g:node_client_debug = 1
+
+" mkdir -p ~/.vim/autoload ~/.vim/bundle
+" curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+"
 " Runtime path manipulation by pathogen.vim
 execute pathogen#infect()
 
@@ -10,6 +16,7 @@ set laststatus=2
 set autoindent
 " Replace tabs with spaces
 set expandtab
+" Show line numbers
 set number
 set shiftwidth=4 softtabstop=4
 syntax on
@@ -53,7 +60,36 @@ let &path.="/usr/include/sys,/usr/include/AL"
 " (in the latter file there're settings which absent in .vimrc provided by
 " vim-bootstrap)
 "
-"if exists("*fugitive#statusline")
-"  set statusline+=%{fugitive#statusline()}
-"endif
-set statusline+=%{FugitiveStatusline()}
+
+
+" Configuration for Async Lint Engine (ALE)
+" Declare which linters to run
+let g:ale_linters = {
+\   'go': ['gopls'],
+\}
+
+" Don't work yet
+let g:ale_c_build_dir_names = ['~/project/kics/tms/.build.clang', '~/project/kics/tms/fix_addr_configuration_index/.build.clang']
+
+" This setting may be confused with setting `statusline` next...
+let g:airline#extensions#ale#enabled = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+" Use `:AirlineExtensions` to view status of extensions.
+"
+" truncate long branch names
+let g:airline#extensions#branch#displayed_head_limit = 30
+
+" Commented in favour of `airline`
+" set statusline+=%{FugitiveStatusline()}
+
+
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
