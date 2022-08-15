@@ -13,3 +13,12 @@ Personal aliases are defined in the `~/.bash_aliases`.
 
 
 ## Settings for Vim
+
+* First, install Vim from sources
+  * get latest Vim
+  * cd ~/vim/src
+  * ./configure
+  * make
+  * sudo make install
+
+* Even if Vim was installed via package manager, after the previous steps the actual version would be available in `/usr/loca/bin`  

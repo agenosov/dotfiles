@@ -15,7 +15,7 @@ alias go_tooldir='go env GOTOOLDIR'
 # Aliases related to Vim
 alias svim='vim -u ~/.SpaceVim/vimrc'
 # List Vim sessions
-alias vim_sessions='ls -l ~/.vim/session/'
+alias vim_sessions='ls -clt ~/.vim/session/'
 
 
 # Aliases related to VirtualBox

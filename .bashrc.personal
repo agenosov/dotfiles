@@ -1,8 +1,10 @@
-export PATH=$PATH:/opt/pycharm-community-2018.3.4/bin
+export EDITOR=/usr/local/bin/vim
+
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/nvim-linux64/bin"
 
-export PSQL_EDITOR=/usr/bin/vim 
+export PSQL_EDITOR=/usr/local/bin/vim 
 
 # Make settings for ConfD available
 source /opt/confd/confdrc
@@ -17,4 +19,21 @@ git_remove_wt()
 {
     git worktree remove -f $1
     git branch -D $2
+}
+
+plan_today()
+{
+    work_plan_path=~/projects/today_work.md
+    learn_plan_path=~/projects/today_learn.md
+    for file in $work_plan_path $learn_plan_path
+    do
+        if [ ! -f "$file" ] ; then
+            touch "$file"
+        fi
+        if [ -f "$file.swp" ] ; then
+            rm -f "$file.swp"
+        fi
+    done
+
+    vim -p "$work_plan_path" "$learn_plan_path"
 }
