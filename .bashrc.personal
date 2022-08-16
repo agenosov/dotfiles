@@ -6,9 +6,6 @@ export PATH="$PATH:$HOME/nvim-linux64/bin"
 
 export PSQL_EDITOR=/usr/local/bin/vim 
 
-# Make settings for ConfD available
-source /opt/confd/confdrc
-
 vim_session_rm()
 {
     rm ~/.vim/session/$1

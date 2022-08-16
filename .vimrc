@@ -1,11 +1,33 @@
-" Debug-language-server
-let g:node_client_debug = 1
-
-" mkdir -p ~/.vim/autoload ~/.vim/bundle
-" curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/HEAD/autoload/pathogen.vim
+" Install vim-plug
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
-" Runtime path manipulation by pathogen.vim
-execute pathogen#infect()
+" Setting up plugins 
+call plug#begin()
+" Session management
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+" FS explorer
+Plug 'preservim/nerdtree'
+" Git support
+Plug 'tpope/vim-fugitive'
+" Wrapper for grep-like utility `ack`
+" Shorthand 'mileszs/ack' doesn't work...
+Plug 'https://github.com/mileszs/ack.vim'
+" Async lint engine (is it worth having with coc.nvim?)
+Plug 'dense-analysis/ale'
+" Fuzzy search
+Plug 'ctrlpvim/ctrlp'
+" Golang support
+Plug 'fatih/vim-go'
+" Advanced status line
+Plug 'vim-airline/vim-airline'
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Terminal in a popup window
+Plug 'voldikss/vim-floaterm'
+" C++ syntax highlighting
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+call plug#end()
 
 " Activate filetype detection
 filetype plugin indent on
@@ -85,11 +107,3 @@ let g:airline#extensions#branch#displayed_head_limit = 30
 
 " Commented in favour of `airline`
 " set statusline+=%{FugitiveStatusline()}
-
-
-" Load all plugins now.
-" Plugins need to be added to runtimepath before helptags can be generated.
-packloadall
-" Load all of the helptags now, after plugins have been loaded.
-" All messages and errors will be ignored.
-silent! helptags ALL
