@@ -1,7 +1,16 @@
 # My personal aliases
 
+# Docker aliases
+alias docker_env='systemctl show --property=Environment docker'
+
 # Aliases related to Git
+#
+# List git worktrees
 alias git_wl='git worktree list'
+# View pretty git log
+alias git_pl='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=rfc'
+# Verbose cloning
+alias git_vclone='GIT_CURL_VERBOSE=1 GIT_TRACE=1  GIT_SSH_COMMAND="ssh -vvv" git clone $@'
 
 # Aliases for `Go` tool
 alias go_env='less ~/.config/go/env'
@@ -13,7 +22,6 @@ alias go_tooldir='go env GOTOOLDIR'
 
 
 # Aliases related to Vim
-alias svim='vim -u ~/.SpaceVim/vimrc'
 # List Vim sessions
 alias vim_sessions='ls -clt ~/.vim/session/'
 
@@ -21,11 +29,3 @@ alias vim_sessions='ls -clt ~/.vim/session/'
 # Aliases related to VirtualBox
 alias vms='vboxmanage list runningvms'
 alias vbox='vboxmanage'
-
-
-# Vagrant
-alias vagrant='/opt/vagrant'
-
-
-# Intel VTune
-alias vtune_activate='export INTEL_LIBITTNOTIFY64=/opt/intel/oneapi/vtune/latest/lib64/runtime/libittnotify_collector.so'

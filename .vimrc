@@ -27,6 +27,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'voldikss/vim-floaterm'
 " C++ syntax highlighting
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+" Auto commenting
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " Activate filetype detection
@@ -71,7 +73,7 @@ autocmd BufNewFile,BufRead *.hpp set formatprg=astyle\ -s4pA1
 
 " control row width
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%>100v.\+/
+match OverLength /\%>150v.\+/
 
 
 " configure path to use gf command

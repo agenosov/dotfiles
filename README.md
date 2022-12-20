@@ -21,4 +21,10 @@ Personal aliases are defined in the `~/.bash_aliases`.
   * make
   * sudo make install
 
-* Even if Vim was installed via package manager, after the previous steps the actual version would be available in `/usr/loca/bin`  
+* Even if Vim was installed via package manager, after the previous steps the actual version would be available in `/usr/local/bin`  
+
+## Settings for Neovim
+
+* follow the instructions from `:help nvim-from-vim`
+* cp ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload
+* :PlugInstall
