@@ -1,4 +1,9 @@
-## Settings for Bash
+# Quick setup
+
+* run ./setup_env.sh
+* run ./bootstrap-vim.sh in order to symlink ~/.vimrc to the config in this repo.
+
+# Settings for Bash
 
 * Separate files for keeping settings for environment on the current work and personal settings. Include in the `~/.bashrc`:
 ```bash
@@ -9,10 +14,9 @@ source ~/.bashrc.local
 source ~/.bashrc.personal
 ```
 
-Personal aliases are defined in the `~/.bash_aliases`.
+* Personal aliases are defined in the `~/.bash_aliases`.
 
-
-## Settings for Vim
+# Settings for (neo)vim
 
 * First, install Vim from sources
   * get latest Vim
